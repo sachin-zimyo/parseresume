@@ -105,7 +105,7 @@ app.post("/", [middle.clearDir, middle.uploadss], async (req, res) => {
       console.log("bye");
       return res.status(200).json({
         success: true,
-        message: error,
+        message: process.env.OPENAI_API_KEY,
       });
     }
   };
