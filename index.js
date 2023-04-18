@@ -102,7 +102,11 @@ app.post("/", [middle.clearDir, middle.uploadss], async (req, res) => {
         message: obj,
       });
     } catch (error) {
-      console.log("hello");
+      console.log("bye");
+      return res.status(200).json({
+        success: true,
+        message: "error",
+      });
     }
   };
 });
