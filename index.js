@@ -54,7 +54,7 @@ app.get("/",(req,res)=>{
   res.send("hello")
 })
 console.log(process.env.OPENAI_API_KEY)
-app.post("/upload", [middle.clearDir, middle.uploadss], async (req, res) => {
+app.post("/", [middle.clearDir, middle.uploadss], async (req, res) => {
   const dataBuffer = fs.readFileSync(`./uploads/${req.file.originalname}`);
   let file_type = req.file.originalname.split(".");
   file_type = file_type[file_type.length - 1];
