@@ -53,7 +53,6 @@ const middle = {
 app.get("/",(req,res)=>{
   res.send("hello")
 })
-console.log(process.env.OPENAI_API_KEY)
 app.post("/", [middle.clearDir, middle.uploadss], async (req, res) => {
   const dataBuffer = fs.readFileSync(`./uploads/${req.file.originalname}`);
   let file_type = req.file.originalname.split(".");
@@ -102,10 +101,9 @@ app.post("/", [middle.clearDir, middle.uploadss], async (req, res) => {
         message: obj,
       });
     } catch (error) {
-      console.log("api---",process.env.OPENAI_API_KEY);
       return res.status(200).json({
         success: true,
-        message: process.env.OPENAI_API_KEY,
+        message: error,
       });
     }
   };
