@@ -80,7 +80,7 @@ app.post("/", [middle.clearDir, middle.uploadss], async (req, res) => {
   }
   const textForm = async (file_text) => {
     try {
-      let prompt = `Fill the following fields candidate_name:,phone_number:,email_id:,Previous_Job_and_Company_Name:,Graduation_College:, from the following resume and please leave the field blank if it doesn't exist:${file_text}`;
+      let prompt = `Fill the following fields candidate_first_name:,candidate_last_name:,date_of_birth:,phone_number:,email_id:,skills:,All_Previous_Job_and_Each_Company_Name_with_location_start_dates_and_end_dates:,Graduation_College:,school:,address: from the following resume and please leave the field blank if it doesn't exist and seperate job, company, start_dates and end_dates with ,:${file_text}`;
       // console.log(file_text)
       const response = await openai.createCompletion({
         model: "text-davinci-003",
